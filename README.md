@@ -1,1 +1,1 @@
-Use index.html to run the game
+# Use index.html to run the game
