@@ -1,0 +1,1 @@
+# Use index.html file to run the game
