@@ -18,11 +18,11 @@ var deadWorker = 0;
 
 var gameOver = false;
 
-var jumpSound = new Audio("jump.mp3");
+var jumpSound = new Audio("../audio/jump.mp3");
 
-var deadSound = new Audio("dead.mp3");
+var deadSound = new Audio("../audio/dead.mp3");
 
-var runSound = new Audio("run.mp3");
+var runSound = new Audio("../audio/run.mp3");
 
 function controller(event){
     
@@ -60,7 +60,7 @@ function run(){
         runImage=1;
     }
 
-    document.getElementById("boy").src="Run ("+runImage+").png";
+    document.getElementById("boy").src="../images/Run ("+runImage+").png";
     moveBackground();
     updateScore();
 
@@ -107,7 +107,7 @@ function jump(){
         runSound.play();
     }
 
-    document.getElementById("boy").src="Jump ("+jumpImage+").png";
+    document.getElementById("boy").src="../images/Jump ("+jumpImage+").png";
     moveBackground();
     updateScore();
 
@@ -135,7 +135,7 @@ function jumpDown(){
 
 function createFlame(x,i){
     var flame = document.createElement("img");
-    flame.src="flame.gif";
+    flame.src="../images/flame.gif";
     flame.className="flame";
     flame.style.marginLeft=x+"px";
     document.body.appendChild(flame);
@@ -187,6 +187,6 @@ function dead(){
         location.reload();
     }
 
-    document.getElementById("boy").src="Dead ("+deadImage+").png";
+    document.getElementById("boy").src="../images/Dead ("+deadImage+").png";
 
 }
