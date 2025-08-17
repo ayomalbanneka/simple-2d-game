@@ -1,16 +1,21 @@
 pipeline {
     agent any
+
     stages {
-        stage('Build') {
+        stage('Checkout') {
             steps {
-                echo 'Fetching code from GitHub...'
+                git branch: 'main',
+                    url: 'https://github.com/ayomalbanneka/simple-2d-game.git'
             }
         }
-        stage('Deploy') {
+
+        stage('Deploy to EC2') {
             steps {
-                sh '''
-                scp -o StrictHostKeyChecking=no -i /var/lib/jenkins/keys/your-key.pem -r * ubuntu@<ec2-public-ip>:/var/www/html
-                '''
+                sshagent(['ec2-ssh-key']) {
+                    sh '''
+                    scp -o StrictHostKeyChecking=no -r * ubuntu@54.169.160.252/var/www/html/
+                    '''
+                }
             }
         }
     }
