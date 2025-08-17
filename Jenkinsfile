@@ -11,7 +11,7 @@ pipeline {
 
         stage('Deploy to EC2') {
             steps {
-                sshagent(['ec2-ssh-key']) {
+                sshagent(['2d-game-ec2-ssh-key']) {
                     sh '''
                     scp -o StrictHostKeyChecking=no -r * ubuntu@54.169.160.252/var/www/html/
                     '''
